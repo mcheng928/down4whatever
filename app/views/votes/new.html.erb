@@ -28,13 +28,7 @@
       </div>
 
       <!-- Label and input for guest_id -->
-      <div class="form-group">
-        <label for="guest_id" class="control-label">
-          Guest
-        </label>
-
-        <%= select_tag(:guest_id, options_from_collection_for_select(User.all, :id, :email, @vote.guest_id), :class => "form-control") %>
-      </div>
+      <input type="hidden" name="guest_id" value="<%= current_user.id %>">
 
       <button class="btn btn-success">
         Create Vote
