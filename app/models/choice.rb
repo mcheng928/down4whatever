@@ -5,6 +5,8 @@ class Choice < ApplicationRecord
 
   # Validations
 
+  validates :event_id, :uniqueness => { :scope => [:venue_id] }
+
   validates :event_id, :presence => true
 
   validates :venue_id, :uniqueness => { :scope => [:event_id] }
