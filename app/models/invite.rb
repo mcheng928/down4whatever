@@ -5,6 +5,8 @@ class Invite < ApplicationRecord
 
   # Validations
 
+  validates :event_id, :presence => true
+
   validates :guest_id, :presence => true
 
 end
