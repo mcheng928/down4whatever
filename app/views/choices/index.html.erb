@@ -16,7 +16,7 @@
 
       <% @choices.each do |choice| %>
       <tr>
-        <td><%= choice.event_id %></td>
+        <td><%= choice.event.title %></td>
         <td><%= choice.venue_id %></td>
         <td>
           <a href="/choices/<%= choice.id %>" class="btn btn-primary">Show</a>
