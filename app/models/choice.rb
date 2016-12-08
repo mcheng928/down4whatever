@@ -1,6 +1,9 @@
 class Choice < ApplicationRecord
   # Direct associations
 
+  has_many   :votes,
+             :dependent => :destroy
+
   belongs_to :venue
 
   belongs_to :event
