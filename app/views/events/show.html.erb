@@ -29,3 +29,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Event has many invites -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Invites
+      </li>
+
+      <% @event.invites.each do |invite| %>
+        <li class="list-group-item">
+          <a href="/invites/<%= invite.id %>">
+            <%= invite.event_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/invites/<%= invite.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/invites/<%= invite.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_invite/<%= invite.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Event has many choices -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Choices
+      </li>
+
+      <% @event.choices.each do |choice| %>
+        <li class="list-group-item">
+          <a href="/choices/<%= choice.id %>">
+            <%= choice.event_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/choices/<%= choice.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/choices/<%= choice.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_choice/<%= choice.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

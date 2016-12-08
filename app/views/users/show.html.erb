@@ -29,3 +29,96 @@
     </div>
   </div>
 </div>
+
+<!-- A User has many events -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Events
+      </li>
+
+      <% @user.events.each do |event| %>
+        <li class="list-group-item">
+          <a href="/events/<%= event.id %>">
+            <%= event.title %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/events/<%= event.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/events/<%= event.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_event/<%= event.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many invites -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Invites
+      </li>
+
+      <% @user.invites.each do |invite| %>
+        <li class="list-group-item">
+          <a href="/invites/<%= invite.id %>">
+            <%= invite.event_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/invites/<%= invite.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/invites/<%= invite.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_invite/<%= invite.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many votes -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Votes
+      </li>
+
+      <% @user.votes.each do |vote| %>
+        <li class="list-group-item">
+          <a href="/votes/<%= vote.id %>">
+            <%= vote.choice_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/votes/<%= vote.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/votes/<%= vote.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_vote/<%= vote.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
