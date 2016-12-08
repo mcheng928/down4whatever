@@ -5,6 +5,8 @@ class Venue < ApplicationRecord
 
   # Validations
 
+  validates :name, :uniqueness => { :scope => [:state, :city, :address] }
+
   validates :name, :presence => true
 
 end
