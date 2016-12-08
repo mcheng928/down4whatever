@@ -24,7 +24,7 @@
           Choice
         </label>
 
-        <input type="text" id="choice_id" name="choice_id" placeholder="Choice" class="form-control" value="<%= @vote.choice_id %>">
+        <%= select_tag(:choice_id, options_from_collection_for_select(Choice.all, :id, :event_id, @vote.choice_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for guest_id -->
