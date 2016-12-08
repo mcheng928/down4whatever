@@ -1,6 +1,9 @@
 class Venue < ApplicationRecord
   # Direct associations
 
+  has_many   :choices,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
