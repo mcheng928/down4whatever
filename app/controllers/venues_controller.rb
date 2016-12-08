@@ -1,6 +1,21 @@
 class VenuesController < ApplicationController
   def index
     @venues = Venue.all
+    @location_hash = Gmaps4rails.build_markers(@venues.where.not(:state_latitude => nil)) do |venue, marker|
+      marker.lat venue.state_latitude
+      marker.lng venue.state_longitude
+      marker.infowindow "<h5><a href='/venues/#{venue.id}'>#{venue.created_at}</a></h5><small>#{venue.state_formatted_address}</small>"
+    end
+    @location_hash = Gmaps4rails.build_markers(@venues.where.not(:city_latitude => nil)) do |venue, marker|
+      marker.lat venue.city_latitude
+      marker.lng venue.city_longitude
+      marker.infowindow "<h5><a href='/venues/#{venue.id}'>#{venue.created_at}</a></h5><small>#{venue.city_formatted_address}</small>"
+    end
+    @location_hash = Gmaps4rails.build_markers(@venues.where.not(:address_latitude => nil)) do |venue, marker|
+      marker.lat venue.address_latitude
+      marker.lng venue.address_longitude
+      marker.infowindow "<h5><a href='/venues/#{venue.id}'>#{venue.created_at}</a></h5><small>#{venue.address_formatted_address}</small>"
+    end
 
     render("venues/index.html.erb")
   end
