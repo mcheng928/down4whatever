@@ -54,6 +54,23 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_vote" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for choice_id -->
+      <input type="hidden" name="choice_id" value="<%= @choice.id %>">
+
+      <!-- Label and input for guest_id -->
+      <input type="hidden" name="guest_id" value="<%= current_user.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Vote
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

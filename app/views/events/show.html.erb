@@ -59,6 +59,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_invite" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for event_id -->
+      <input type="hidden" name="event_id" value="<%= @event.id %>">
+
+      <!-- Label and input for guest_id -->
+      <div class="form-group">
+        <label for="guest_id" class="control-label">
+          Guest
+        </label>
+
+        <%= select_tag(:guest_id, options_from_collection_for_select(User.all, :id, :email), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Invite
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -90,6 +113,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_choice" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for event_id -->
+      <input type="hidden" name="event_id" value="<%= @event.id %>">
+
+      <!-- Label and input for venue_id -->
+      <div class="form-group">
+        <label for="venue_id" class="control-label">
+          Venue
+        </label>
+
+        <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :address), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Choice
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

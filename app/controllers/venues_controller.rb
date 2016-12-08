@@ -6,6 +6,7 @@ class VenuesController < ApplicationController
   end
 
   def show
+    @choice = Choice.new
     @venue = Venue.find(params[:id])
 
     render("venues/show.html.erb")
