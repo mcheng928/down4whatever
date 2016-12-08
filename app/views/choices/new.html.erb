@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @choice.errors.any? %>
+  <% @choice.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Choice</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_choice" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for event_id -->
+      <div class="form-group">
+        <label for="event_id" class="control-label">
+          Event
+        </label>
+
+        <input type="text" id="event_id" name="event_id" placeholder="Event" class="form-control" value="<%= @choice.event_id %>">
+      </div>
+
+      <!-- Label and input for venue_id -->
+      <div class="form-group">
+        <label for="venue_id" class="control-label">
+          Venue
+        </label>
+
+        <input type="text" id="venue_id" name="venue_id" placeholder="Venue" class="form-control" value="<%= @choice.venue_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Choice
+      </button>
+      or
+      <a href="/choices">Cancel</a>
+    </form>
+  </div>
+</div>
