@@ -16,8 +16,20 @@
 
       <% @choices.each do |choice| %>
       <tr>
-        <td><%= choice.event.title %></td>
-        <td><%= choice.venue.address %></td>
+        <td>
+          <% if choice.event.present? %>
+            <a href="/events/<%= choice.event.id %>">
+              <%= choice.event.title %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if choice.venue.present? %>
+            <a href="/venues/<%= choice.venue.id %>">
+              <%= choice.venue.address %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/choices/<%= choice.id %>" class="btn btn-primary">Show</a>
           <a href="/choices/<%= choice.id %>/edit" class="btn btn-warning">Edit</a>

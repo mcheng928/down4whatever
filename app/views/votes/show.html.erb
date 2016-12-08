@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Choice</dt>
-      <dd><%= @vote.choice_id %></dd>
+      <dd>
+        <% if @vote.choice.present? %>
+          <a href="/choices/<%= @vote.choice_id %>">
+            <%= @vote.choice.event_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Guest</dt>
-      <dd><%= @vote.guest_id %></dd>
+      <dd>
+        <% if @vote.guest.present? %>
+          <a href="/users/<%= @vote.guest_id %>">
+            <%= @vote.guest.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

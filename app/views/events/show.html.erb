@@ -9,7 +9,13 @@
       <dd><%= @event.title %></dd>
 
       <dt>Host</dt>
-      <dd><%= @event.host_id %></dd>
+      <dd>
+        <% if @event.host.present? %>
+          <a href="/users/<%= @event.host_id %>">
+            <%= @event.host.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Start</dt>
       <dd><%= @event.start %></dd>
