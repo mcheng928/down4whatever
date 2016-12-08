@@ -17,7 +17,7 @@
       <% @invites.each do |invite| %>
       <tr>
         <td><%= invite.event.title %></td>
-        <td><%= invite.guest_id %></td>
+        <td><%= invite.guest.email %></td>
         <td>
           <a href="/invites/<%= invite.id %>" class="btn btn-primary">Show</a>
           <a href="/invites/<%= invite.id %>/edit" class="btn btn-warning">Edit</a>
