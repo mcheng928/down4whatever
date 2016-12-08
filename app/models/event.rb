@@ -1,6 +1,9 @@
 class Event < ApplicationRecord
   # Direct associations
 
+  has_many   :invites,
+             :dependent => :destroy
+
   belongs_to :host,
              :class_name => "User"
 
